@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Customer Churn Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <div class="form-box">
+        <h1 class="title">CUSTOMER CHURN PREDICTION</h1>
+        <form method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="age" class="question">Age:</label><br>
+                    <input type="number" id="age" name="age" required min="0" step="1" 
+                        value="{{ form.get('age', '45') }}"><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="senior_citizen" class="question">Senior Citizen:</label><br>
+                    <input type="radio" name="senior_citizen" id="yes" value="yes"
+                     {% if form.get('senior_citizen') == 'yes' %}checked{% endif %}>
+                        <label for="yes">Yes</label>
+                    <input type="radio" name="senior_citizen" id="no" value="no"
+                        {% if form.get('senior_citizen') == 'no' or not form %}checked{% endif %}>
+                        <label for="no">No</label>
+                    <br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="married" class="question">Married:</label><br>
+                    <input type="radio" name="married" id="yes" value="yes"
+                        {% if form.get('married') == 'yes' or not form %}checked{% endif %}>
+                        <label for="yes">Yes</label>
+                    <input type="radio" name="married" id="no" value="no"
+                        {% if form.get('married') == 'no' %}checked{% endif %}>
+                        <label for="no">No</label>
+                    <br><br>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="num_dependents" class="question">Number of Dependents:</label><br>
+                    <input type="number" id="num_dependents" name="num_dependents" required min="0" step="1" 
+                    value="{{ form.get('num_dependents', '1') }}"><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="tenure_months" class="question">Tenure in Months:</label><br>
+                    <input type="number" id="tenure_months" name="tenure_months" required min="0" step="1" 
+                        value="{{ form.get('tenure_months', '32') }}"><br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="num_referrals" class="question">Number of Referrals:</label><br>
+                    <input type="number" id="num_referrals" name="num_referrals" required min="0" step="1" 
+                    value="{{ form.get('num_referrals', '2') }}"><br><br>
+                </div>
+            </div>
+
+
+            <div class="grid-container">
+                <div class="form-group">
+                    <label for="has_internet_service" class="question">Internet Service Subscription:</label><br>
+                    <input type="radio" name="has_internet_service" id="yes" value="yes" 
+                        {% if form.get('has_internet_service') == 'yes' or not form %}checked{% endif %}>
+                        <label for="yes">Yes</label>
+                    <input type="radio" name="has_internet_service" id="no" value="no"
+                        {% if form.get('has_internet_service') == 'no' %}checked{% endif %}>
+                        <label for="no">No</label>
+                    <br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="has_unlimited_data" class="question">Unlimited Data:</label><br>
+                    <input type="radio" name="has_unlimited_data" id="yes" value="yes" 
+                        {% if form.get('has_unlimited_data') == 'yes' or not form %}checked{% endif %}>
+                        <label for="yes">Yes</label>
+                    <input type="radio" name="has_unlimited_data" id="no" value="no"
+                        {% if form.get('has_unlimited_data') == 'no' %}checked{% endif %}>
+                        <label for="no">No</label>
+                    <br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="has_premium_tech_support" class="question">Premium Tech Support:</label><br>
+                    <input type="radio" name="has_premium_tech_support" id="yes" value="yes"
+                        {% if form.get('has_premium_tech_support') == 'yes' %}checked{% endif %}>
+                        <label for="yes">Yes</label>
+                    <input type="radio" name="has_premium_tech_support" id="no" value="no" 
+                        {% if form.get('has_premium_tech_support') == 'no' or not form %}checked{% endif %}>
+                        <label for="no">No</label>
+                    <br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="paperless_billing" class="question">Paperless Billing:</label><br>
+                    <input type="radio" name="paperless_billing" id="yes" value="yes"
+                        {% if form.get('paperless_billing') == 'yes' or not form %}checked{% endif %}>
+                        <label for="yes">Yes</label>
+                    <input type="radio" name="paperless_billing" id="no" value="no"
+                        {% if form.get('paperless_billing') == 'no' %}checked{% endif %}>
+                        <label for="no">No</label>
+                    <br><br>
+                </div>
+            </div>
+
+
+            <div class="grid-container">
+                <div class="form-group">
+                    <label for="total_monthly_fee" class="question">Total Monthly Fees:</label><br>
+                    <div class="currency">
+                        <span class="dollar">$</span>
+                        <input type="number" id="total_monthly_fee" name="total_monthly_fee" required 
+                            min="0" step="0.01" value="{{ form.get('total_monthly_fee', '65.00') }}" placeholder="0.00">
+                    </div>
+                    <br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="total_charges_quarter" class="question">Total Quarterly Charges:</label><br>
+                    <div class="currency">
+                        <span class="dollar">$</span>
+                        <input type="number" id="total_charges_quarter" name="total_charges_quarter" required
+                            min="0" step="0.01" value="{{ form.get('total_charges_quarter', '2280.00') }}" placeholder="0.00">
+                    </div>
+                    <br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="avg_long_distance_fee_monthly" class="question">Average Long-Distance Monthly Fees:</label><br>
+                    <div class="currency">
+                        <span class="dollar">$</span>
+                        <input type="number" id="avg_long_distance_fee_monthly" name="avg_long_distance_fee_monthly" required
+                            min="0" step="0.01" value="{{ form.get('avg_long_distance_fee_monthly', '23.00') }}" 
+                            placeholder="0.00">
+                    </div>
+                    <br><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="avg_gb_download_monthly" class="question">Size of Average Monthly Downloads<br>(in GB):</label><br>
+                    <input type="number" id="avg_gb_download_monthly" name="avg_gb_download_monthly" required 
+                        min="0" step="1" value="{{ form.get('avg_gb_download_monthly', '20') }}" placeholder="0">
+                    <br><br>
+                </div>
+            </div>
+            
+            <input type="submit" value="Predict">
+        </form>
+
+        <div class="prediction">
+            {% if errors %}
+                {% for error in errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+
+            {% if prediction is defined %}
+                {% if prediction == 0 %}
+                    <h4>The customer is unlikely to churn.</h4>
+                {% elif prediction == 1 %}
+                    <h4>The customer is likely to churn.</h4>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

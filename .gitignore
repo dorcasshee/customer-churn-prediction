@@ -1,0 +1,7 @@
+# Sensitive files
+.env
+data/*.csv
+
+# Byte-compiled, cached, optimized files
+__pycache__/
+catboost_info/

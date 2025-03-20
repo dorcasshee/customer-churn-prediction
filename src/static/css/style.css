@@ -1,0 +1,123 @@
+body {
+    font-family: 'Outfit', sans-serif;
+    background: #1f3965;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+label.question {
+    font-weight: bold;
+    white-space: nowrap;
+    text-wrap: pretty;
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.form-box {
+    background-color: #f5faff;
+    color: #1f3965;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 1vw 4vw;
+    max-height: 90vh;
+    border-radius: 6%;
+    overflow-y: auto;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 5px 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+    padding: 10px;
+}
+
+.form-group {
+    flex: 1;
+    margin-right: 1.5em;
+}
+
+.dollar {
+    font-size: 20px;
+    color: #1f3965;
+}
+
+input[type=number] {
+    width: 8em;
+    padding: 8px;
+    margin: 7px 0;
+    display: inline-block;
+    border: 2px solid #1F3864;
+    border-radius: 16px;
+    box-sizing: border-box;
+    align-content: center;
+}
+
+input[type=radio] {
+    padding: 8px;
+    margin: 10px 5px;
+    accent-color: #1871c4;
+}
+
+label[for="yes"] {
+    margin-right: 12px;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #1F3864;
+    color: white;
+    padding: 8px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 3px solid black;
+    box-sizing: border-box;
+    align-content: center;
+    font-weight: bold;
+}
+
+input[type=submit]:hover {
+    width: 100%;
+    background-color: white;
+    color: #1f3965;
+    font-weight: bold;
+    padding: 8px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 3px solid #1f3965;
+    box-sizing: border-box;
+    align-content: center;
+}
+
+.prediction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #1f3965;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
