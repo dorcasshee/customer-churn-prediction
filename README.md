@@ -9,7 +9,6 @@ This project was completed as part of an **AI deployment course** in a pairwork 
 ### Repository Structure
 - 🥬 `notebooks/research.ipynb` - contains analysis and model
 - 🥬 `notebooks/api_query.ipynb` - example query using API call
-- 🧀 `data/sample.csv` - sample data for example API query
 - 🫓 `src/model.py` - loads exported Model using `joblib` for predictions
 - 🫓 `src/app.py` - details main app logic for requests made via UI Form and API calls
 - 🫓 `src/input_processing.py` - validates and formats the necessary model inputs from form responses
@@ -37,7 +36,8 @@ We selected our features through a mix of **correlation analysis** and **explora
 
 We experimented with different classifiers (_Logistic Regression, Random Forest Classifier, Gradient Boosting Classifier, XGBoost, CatBoost_), picked the model with the best AUC score, which was the **`CatBoost Classifier`** at **0.8792**.
 
-We then performed **hyperparameter tuning using GridSearchCV** (Best Parameters: 'depth': 4, 'iterations': 100, 'l2_leaf_reg': 1, 'learning_rate': 0.1) to **optimise** the AUC score, arriving at a final score of **0.8809**.
+We then performed **hyperparameter tuning using GridSearchCV** to **optimise** the AUC score, arriving at a final score of **0.8809**.
+- Best Parameters: `depth`: 4, `iterations`: 100, `l2_leaf_reg`: 1, `learning_rate`: 0.1
 
 ---
 ## Data Source
@@ -51,7 +51,6 @@ The original dataset was provided as part of the course and is not publicly avai
 git clone https://github.com/dorcasshee/customer-churn-prediction.git
 cd customer-churn-prediction
 ```
-
 ### 2. [Optional] Create a virtual environment
 You may want to use a virtual environment for dependency management. You can run the following commands to create and activate a new virtual environment:
 ```powershell
@@ -71,7 +70,7 @@ python src\app.py
 ```
 
 ### 5. Access the web app
-You can access the web app at `http://localhost:5000`.  
+You can access the web app at http://localhost:5000.  
 You should see a web form like this:
 
 ![Customer Churn Prediction Web Form](img/website_form_ui_screenshot.png)
