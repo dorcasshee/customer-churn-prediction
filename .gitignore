@@ -1,6 +1,5 @@
 # Sensitive files
 .env
-data/*.csv
 
 # Byte-compiled, cached, optimized files
 __pycache__/
