@@ -57,25 +57,32 @@ You may want to use a virtual environment for dependency management. You can run
 python -m venv [venvName] # only run once
 [venvName]\Scripts\activate # windows
 ```
+Replace `[venvName]` with your desired virtual environment name. E.g., `cust-churn`.
 
-### 3. Install dependencies
+### 3. [Recommended] Upgrade `pip`
+```powershell
+python -m pip install --upgrade pip
+```
+
+### 4. Install dependencies
 ```powershell
 pip install -r requirements.txt
 ```
-This might take a few minutes.
+This might take a few minutes.  
+**Note**: You can run this in Visual Studio Code (VSC). Please ensure you have the Jupyter extension in VSC.
 
-### 4. Run the Flask app
+### 5. Run the Flask app
 ```powershell
 python src\app.py
 ```
 
-### 5. Access the web app
+### 6. Access the web app
 You can access the web app at http://localhost:5000.  
 You should see a web form like this:
 
 ![Customer Churn Prediction Web Form](img/website_form_ui_screenshot.png)
 
-### 6. [Optional] Deactivate the virtual environment
+### 7. [Optional] Deactivate the virtual environment
 ```powershell
 deactivate
 ```
